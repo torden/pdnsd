@@ -239,7 +239,8 @@ inline static int strncp(char *dst, const char *src, size_t dstsz)
 #ifdef HAVE_STPNCPY
 	char *p=stpncpy(dst,src,dstsz);
 	if(p<dst+dstsz) return 1;
-	*(p-1)='\0';
+	//*(p-1)='\0';
+	p = NULL;
 	return 0;
 #else
 	strncpy(dst,src,dstsz);
